@@ -1,9 +1,12 @@
 import { store, books } from "./store"
 
+
 const Card = ({ producto }) => {
     const { nombre, imagen, numeroDePaginas, costo, id } = producto
     const handledAddNewProducto = () => {
+        
       }
+
     return (        
     <div className="flex mt-2 mb-2">
         <div key={id} className="rounded-lg flex w-[50rem] shadow-md relative">
@@ -27,8 +30,8 @@ const Card = ({ producto }) => {
             <button onClick={() =>  handledAddNewProducto()} className="w-full bg-black text-gray-50 p-4 rounded">
             Agregar nuevo producto
             </button>
-            <button className='bg-gray-700 text-gray-50 p-4 rounded-md w-full'>
-            Eliminar producto
+            <button className='bg-blue-500 text-gray-50 p-4 rounded-md w-full'>
+                Pagar con Paypal                
             </button>
       </div>
     </div>
