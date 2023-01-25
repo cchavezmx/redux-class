@@ -1,5 +1,7 @@
 import { createStore } from 'redux'
-
+// npm install redux
+// redux toolkit
+// redux saga 
 
 export const books = [
   {
@@ -31,9 +33,11 @@ export const books = [
 //  son palabras claves que se usan para definir el comportamiento de la aplicación
 // REDUCER: es una función que recibe el estado actual y una acción y devuelve el nuevo estado
 const reducer = (state = [], action) => {
-
+  switch(action.type) {
+    case 'ADD_PRODUCT': 
+    return [...state, action.payload]    
+  }
 }
-
 
 // STORE: es el objeto que contiene el estado de la aplicación
 export const store = createStore(reducer)

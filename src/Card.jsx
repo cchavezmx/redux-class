@@ -4,7 +4,12 @@ import { store, books } from "./store"
 const Card = ({ producto }) => {
     const { nombre, imagen, numeroDePaginas, costo, id } = producto
     const handledAddNewProducto = () => {
-        
+        store.dispatch({
+            type: 'ADD_PRODUCT',
+            payload: {
+                ...producto
+            }
+        })
       }
 
     return (        

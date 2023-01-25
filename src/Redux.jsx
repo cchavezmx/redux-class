@@ -1,9 +1,8 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { store, books } from "./store"
 import Card from "./Card"
 import Footer from "./Footer"
 import SideWare from "./Sideware"
-
 
 const Redux = () => {
   
@@ -11,9 +10,17 @@ const Redux = () => {
   const [openCarrito, setOpenCarrito] = useState(false)
   const handledOpenCarrito = () => setOpenCarrito(!openCarrito)
 
+  // useEffect(() => {
+  //   console.log(store.getState())
+  // }, [])
+  store.subscribe(() => {
+    console.log('store changed', store.getState())
+    setCarrito(store.getState())
+  })
+
   return (
     <main>
-      <nav className="bg-[#8F37FF] w-screen text-white">
+      <nav className="bg-[#8F37FF] w-screen text-white">        
         <h1 className='p-4 text-5xl text-center'>Redux store</h1>
         <div onClick={handledOpenCarrito} className="badge" data-notify={carrito.length || 0}></div>
       </nav>
