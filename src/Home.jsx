@@ -1,7 +1,7 @@
-import books from "../store.json"
-import Card from "./Card"
+import books from '../store.json'
+import Card from './Card'
 
-export default function Home(){
+export default function Home () {
   return (
     <>
        <section>

@@ -1,8 +1,7 @@
-import { Link } from "react-router-dom"
-import { useStoreContext } from "./store"
+import { Link } from 'react-router-dom'
+import { useStoreContext } from './store'
 
-
-export default function Layout({ children }) {
+export default function Layout ({ children }) {
   const { totalProducts } = useStoreContext()
   return (
     <>
@@ -17,7 +16,7 @@ export default function Layout({ children }) {
         <main className='grid px-12'>
           {children}
         </main>
-    
+
     </>
   )
 }

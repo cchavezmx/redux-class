@@ -1,6 +1,6 @@
-import Layout from "./Layout"
-import Home from "./Home"
-import Cart from "./Cart"
+import Layout from './Layout'
+import Home from './Home'
+import Cart from './Cart'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 const router = createBrowserRouter([
@@ -10,18 +10,18 @@ const router = createBrowserRouter([
       <Layout>
         <Home />
       </Layout>
-    )      
+    )
   },
   {
     path: '/cart',
     element: (
       <Layout>
         <Cart />
-      </Layout>      
+      </Layout>
     )
   }
 ])
 
-export default function App() {
+export default function App () {
   return <RouterProvider router={router} />
 }

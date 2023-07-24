@@ -1,6 +1,6 @@
 // https://redux-toolkit.js.org/tutorials/quick-start
-import { createSlice, configureStore, createAsyncThunk } from "@reduxjs/toolkit";
-import { useDispatch, useSelector } from "react-redux";
+import { createSlice, configureStore, createAsyncThunk } from '@reduxjs/toolkit'
+import { useDispatch, useSelector } from 'react-redux'
 
 const initialState = {
   cart: [],
@@ -20,29 +20,28 @@ const addToCartAsync = createAsyncThunk('store/addToCartAsync', async (item, {
 })
 
 const storeSlice = createSlice({
-  name: "store",
+  name: 'store',
   initialState,
   reducers: {
-    addToCart(state, action) {      
+    addToCart (state, action) {
       const producto = action.payload
       const payload = {
         ...producto,
         cantidad: 1
       }
-      
+
       const isExist = state.cart.find((item) => item.id === producto.id)
 
       if (isExist) {
-        isExist.cantidad += 1        
+        isExist.cantidad += 1
         state.newItem = true
-
-      } else {                
+      } else {
         state.cart.push(payload)
         state.newItem = true
       }
     },
 
-    removeFromCart(state, action) {
+    removeFromCart (state, action) {
       state.cart = state.cart.filter((item) => item.id !== action.payload.id)
 
       if (state.cart.length === 0) {
@@ -50,19 +49,19 @@ const storeSlice = createSlice({
       }
     },
 
-    addToSaved(state, action) {
+    addToSaved (state, action) {
       state.saved.push(action.payload)
     },
 
-    removeFromSaved(state, action) {
+    removeFromSaved (state, action) {
       state.saved = state.saved.filter((item) => item.id !== action.payload.id)
     },
 
-    newItem(state, action) {      
-      state.newItem = action.payload      
+    newItem (state, action) {
+      state.newItem = action.payload
     },
 
-    removeNewItem(state, action) {
+    removeNewItem (state, action) {
       state.newItem = action.payload
     }
   },
@@ -76,14 +75,13 @@ const storeSlice = createSlice({
         ...producto,
         cantidad: 1
       }
-      
+
       const isExist = state.cart.find((item) => item.id === producto.id)
 
       if (isExist) {
-        isExist.cantidad += 1        
+        isExist.cantidad += 1
         state.newItem = false
-
-      } else {                
+      } else {
         state.cart.push(payload)
         state.newItem = false
       }
@@ -91,21 +89,19 @@ const storeSlice = createSlice({
   }
 })
 
-
 const store = configureStore({
   reducer: storeSlice.reducer
 })
 
-
 const useStoreContext = () => {
   const dispatch = useDispatch()
 
-  const addToCart = (item) => {    
+  const addToCart = (item) => {
     dispatch(addToCartAsync(item))
     dispatch(storeSlice.actions.removeNewItem(true))
   }
 
-  const removeFromCart = (item) => {        
+  const removeFromCart = (item) => {
     dispatch(storeSlice.actions.removeFromCart(item))
   }
 
@@ -122,7 +118,7 @@ const useStoreContext = () => {
   const allProducts = useSelector((state) => state.cart)
 
   const newItem = useSelector((state) => state.newItem)
-  
+
   return {
     addToCart,
     removeFromCart,
@@ -130,12 +126,11 @@ const useStoreContext = () => {
     removeFromSaved,
     totalProducts,
     allProducts,
-    newItem,    
+    newItem
   }
 }
-
 
 export {
   store as default,
   useStoreContext
-};
+}

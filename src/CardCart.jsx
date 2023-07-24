@@ -1,7 +1,6 @@
 import { useStoreContext } from './store.js'
 
-export default function CardCart({ producto }){
-
+export default function CardCart ({ producto }) {
   const { removeFromCart } = useStoreContext()
   const { nombre, imagen, cantidad = 0 } = producto
 
@@ -9,10 +8,10 @@ export default function CardCart({ producto }){
     <div className="grid grid-cols-2 rounded-md p-2 shadow-lg border-solid border-2 border-gray-50">
         <div>
           <div className="card_product">
-            <img 
+            <img
               className="h-64 w-64 object-cover rounded-md"
               src={imagen}
-              alt="producto" 
+              alt="producto"
             />
           <h2 className="text-4xl py-2">
             { nombre }
@@ -20,7 +19,7 @@ export default function CardCart({ producto }){
           </div>
         </div>
         <div className="flex flex-col items-end">
-          <button 
+          <button
             onClick={() => removeFromCart(producto)}
             className="btn btn-danger text-2xl bg-blue-300 w-fit p-2 px-4 rounded-md my-2">
               Eliminar
