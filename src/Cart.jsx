@@ -2,7 +2,7 @@ import CardCart from './CardCart'
 import { useStoreContext } from './store'
 
 export default function Cart () {
-  const { allProducts } = useStoreContext()
+  const { cart: allProducts } = useStoreContext()
 
   return (
     <>
@@ -13,7 +13,7 @@ export default function Cart () {
           allProducts.length > 0
             ? (
                 allProducts.map((producto) => (
-              <CardCart key={producto.id} producto={producto} />
+                 <CardCart key={producto.id} producto={producto} />
                 )
                 )
               )
