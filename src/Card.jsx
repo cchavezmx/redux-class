@@ -1,6 +1,3 @@
-import { store, books } from "./store"
-
-
 const Card = ({ producto }) => {
     const { nombre, imagen, numeroDePaginas, costo, id } = producto
     const handledAddNewProducto = () => {
@@ -8,8 +5,8 @@ const Card = ({ producto }) => {
       }
 
     return (        
-    <div className="flex mt-2 mb-2">
-        <div key={id} className="rounded-lg flex w-[50rem] shadow-md relative">
+    <div className="flex mt-2">
+        <div key={id} className="rounded-lg flex w-auto shadow-md relative">
             <picture className="h-64 overflow-hidden shadow-md ">
                 <img src={imagen} className="w-64 h-64 object-cover"/>
             </picture>
@@ -27,11 +24,11 @@ const Card = ({ producto }) => {
             </div>            
         </div>
         <div className='flex flex-col gap-2 items-center rounded-sm w-64 h-64 place-content-center shadow-md p-4'>
-            <button onClick={() =>  handledAddNewProducto()} className="w-full bg-black text-gray-50 p-4 rounded">
-            Agregar nuevo producto
+            <button className="w-full bg-black text-gray-50 p-4 rounded">
+                Agregar
             </button>
             <button className='bg-blue-500 text-gray-50 p-4 rounded-md w-full'>
-                Pagar con Paypal                
+                Pagar
             </button>
       </div>
     </div>

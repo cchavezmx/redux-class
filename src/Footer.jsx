@@ -1,4 +1,3 @@
-import { store } from "./store"
 import { useState } from "react"
 
 const Footer = () => {
