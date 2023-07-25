@@ -1,4 +1,5 @@
 import { store } from "./store"
+// TODO: Cada vez que se añada un elemento al carrito, se debe actualizar esta seccion
 
 const SideWare = ({ openCarrito }) => {
     

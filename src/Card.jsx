@@ -1,8 +1,5 @@
-const Card = ({ producto }) => {
+const Card = ({ producto, addToCart }) => {
     const { nombre, imagen, numeroDePaginas, costo, id } = producto
-    const handledAddNewProducto = () => {
-        
-      }
 
     return (        
     <div className="flex mt-2">
@@ -24,7 +21,9 @@ const Card = ({ producto }) => {
             </div>            
         </div>
         <div className='flex flex-col gap-2 items-center rounded-sm w-64 h-64 place-content-center shadow-md p-4'>
-            <button className="w-full bg-black text-gray-50 p-4 rounded">
+            <button 
+                onClick={() => addToCart(producto)}
+                className="w-full bg-black text-gray-50 p-4 rounded">
                 Agregar
             </button>
             <button className='bg-blue-500 text-gray-50 p-4 rounded-md w-full'>
